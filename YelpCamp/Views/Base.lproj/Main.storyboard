@@ -346,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="180" width="354" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
-                                            <segue destination="dFk-hn-UIr" kind="presentation" modalPresentationStyle="fullScreen" id="NQz-0c-9rh"/>
+                                            <segue destination="dFk-hn-UIr" kind="presentation" identifier="loggedInToHome" modalPresentationStyle="fullScreen" id="NQz-0c-9rh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -364,7 +364,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="T2p-S0-sxL" id="7Gb-vq-9em"/>
                         <outlet property="usernameTextField" destination="MpG-pH-BqL" id="xRp-2E-vb4"/>
-                        <segue destination="Rto-rN-Vro" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="yq3-8j-WBX"/>
+                        <segue destination="Rto-rN-Vro" kind="presentation" identifier="loggedInToTabView" modalPresentationStyle="fullScreen" id="yq3-8j-WBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbb-vU-uwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -430,7 +430,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Lw-XS-WXc"/>
-        <segue reference="inv-mW-E3d"/>
+        <segue reference="yq3-8j-WBX"/>
+        <segue reference="NQz-0c-9rh"/>
     </inferredMetricsTieBreakers>
 </document>

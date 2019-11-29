@@ -10,14 +10,44 @@ import UIKit
 
 class CampgroundsVC: UITableViewController {
 
+    var campgrounds: [CampgroundObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let api = API(successFunc: { (data) in
+            let decoder = JSONDecoder()
+            do {
+                let campgroundsResponse = try decoder.decode(CampgroundsResponseObject.self, from: data)
+                if campgroundsResponse.type == "campgrounds" {
+                    print("Successfully got campgrounds")
+                    self.campgrounds = campgroundsResponse.data
+                } else {
+                    print("Error accessing campgrounds")
+                    print(campgroundsResponse.type)
+                }
+            } catch {
+                print("Error parsing campgrounds")
+                print(error)
+            }
+        }) { (error) in
+            if let err = error {
+                print("Error getting campgrounds")
+                print(err)
+            }
+        }
+        
+        let url = URL(string: api.urlString + "campgrounds")
+        
+        if let safeURL = url {
+            let task = URLSession.shared.dataTask(with: safeURL, completionHandler: api.handleResponse(data:response:error:))
+            task.resume()
+            
+        } else {
+            print("Nonvalid URL")
+        }
+        
+        
     }
 
     // MARK: - Table view data source

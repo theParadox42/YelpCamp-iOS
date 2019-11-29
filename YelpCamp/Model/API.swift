@@ -10,14 +10,38 @@ import Foundation
 
 class API {
     
-    static let shared = API(apiUrl: "https://paradox-yelp-camp.herokuapp.com/api/v1/")
-//    static let shared = API(apiUrl: "http://localhost:8080/api/v1/")
+    static let shared = API(successFunc: { (useless) in
+        print("Don't use me!")
+    }) { (useless) in
+        print("Don't use me!")
+    }
     
-    let urlString: String
-    let adminCode = "7890"
+    let urlString: String = "https://paradox-yelp-camp.herokuapp.com/api/v1/"
+    let adminCode: String = "7890"
+    let successFunc: (Data) -> Void
+    let failureFunc: (Error?) -> Void
     
-    private init(apiUrl: String){
-        self.urlString = apiUrl
+    init(successFunc: (@escaping (Data) -> Void), failureFunc: (@escaping (Error?) -> Void)){
+        self.successFunc = successFunc
+        self.failureFunc = failureFunc
+    }
+    
+    func handleResponse(data: Data?, response: URLResponse?, error: Error?) {
+        if let err = error {
+            DispatchQueue.main.async {
+                self.failureFunc(err)
+            }
+            return
+        } else if let jsonData = data {
+            DispatchQueue.main.async {
+                self.successFunc(jsonData)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.failureFunc(nil)
+            }
+        }
+        
     }
     
 }

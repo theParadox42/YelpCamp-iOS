@@ -20,7 +20,7 @@
 		F155A013239099F9002B5004 /* NewCampgroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A012239099F9002B5004 /* NewCampgroundVC.swift */; };
 		F155A01523909A2F002B5004 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01423909A2F002B5004 /* AccountVC.swift */; };
 		F155A01923909BB1002B5004 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01823909BB1002B5004 /* API.swift */; };
-		F155A01B2390A12B002B5004 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01A2390A12B002B5004 /* responseObject.swift */; };
+		F155A01B2390A12B002B5004 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01A2390A12B002B5004 /* ResponseObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		F155A012239099F9002B5004 /* NewCampgroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCampgroundVC.swift; sourceTree = "<group>"; };
 		F155A01423909A2F002B5004 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		F155A01823909BB1002B5004 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		F155A01A2390A12B002B5004 /* responseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
+		F155A01A2390A12B002B5004 /* ResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F155A01823909BB1002B5004 /* API.swift */,
-				F155A01A2390A12B002B5004 /* responseObject.swift */,
+				F155A01A2390A12B002B5004 /* ResponseObject.swift */,
 				F10743CA2391A756004D1650 /* ClassExtensions.swift */,
 			);
 			path = Model;
@@ -219,7 +219,7 @@
 				F155A00F23909948002B5004 /* CampgroundsVC.swift in Sources */,
 				F155A0092390983D002B5004 /* SignUpVC.swift in Sources */,
 				F155A013239099F9002B5004 /* NewCampgroundVC.swift in Sources */,
-				F155A01B2390A12B002B5004 /* responseObject.swift in Sources */,
+				F155A01B2390A12B002B5004 /* ResponseObject.swift in Sources */,
 				F155A00B239098CB002B5004 /* LoginVC.swift in Sources */,
 				F155A01923909BB1002B5004 /* API.swift in Sources */,
 				F10743CB2391A756004D1650 /* ClassExtensions.swift in Sources */,
