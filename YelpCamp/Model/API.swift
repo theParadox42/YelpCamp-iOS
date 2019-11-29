@@ -10,12 +10,14 @@ import Foundation
 
 class API {
     
-    static let shared = API(apiUrl: URL(string: "https://paradox-yelp-camp.herokuapp.com/api/v1/")!)
+    static let shared = API(apiUrl: "https://paradox-yelp-camp.herokuapp.com/api/v1/")
+//    static let shared = API(apiUrl: "http://localhost:8080/api/v1/")
     
-    let url: URL
+    let urlString: String
+    let adminCode = "7890"
     
-    private init(apiUrl: URL){
-        self.url = apiUrl
+    private init(apiUrl: String){
+        self.urlString = apiUrl
     }
     
 }

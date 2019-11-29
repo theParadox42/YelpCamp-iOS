@@ -270,14 +270,13 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signUpPressed:" destination="O6c-kG-mcX" eventType="touchUpInside" id="FMc-bB-hBB"/>
-                                            <segue destination="Rto-rN-Vro" kind="presentation" modalPresentationStyle="fullScreen" id="EhK-2u-z8R"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fk1-k6-SRk">
                                         <rect key="frame" x="0.0" y="296" width="354" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
-                                            <segue destination="dFk-hn-UIr" kind="presentation" modalPresentationStyle="fullScreen" id="inv-mW-E3d"/>
+                                            <segue destination="dFk-hn-UIr" kind="presentation" identifier="signUpToHome" modalPresentationStyle="fullScreen" id="inv-mW-E3d"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -297,6 +296,7 @@
                         <outlet property="emailTextField" destination="94R-9L-a4w" id="e9x-ne-MEa"/>
                         <outlet property="passwordTextField" destination="7Jw-xP-ReC" id="RY0-MF-wo4"/>
                         <outlet property="usernameTextField" destination="r4x-L0-BWe" id="9vg-PJ-71h"/>
+                        <segue destination="Rto-rN-Vro" kind="presentation" identifier="signUpToTabView" modalPresentationStyle="fullScreen" id="0Lw-XS-WXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exL-ra-VnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -340,7 +340,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginPressed:" destination="uko-VR-E2P" eventType="touchUpInside" id="si8-QE-bKk"/>
-                                            <segue destination="Rto-rN-Vro" kind="presentation" modalPresentationStyle="fullScreen" id="Raw-wT-ts9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-Ip-tj5">
@@ -365,6 +364,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="T2p-S0-sxL" id="7Gb-vq-9em"/>
                         <outlet property="usernameTextField" destination="MpG-pH-BqL" id="xRp-2E-vb4"/>
+                        <segue destination="Rto-rN-Vro" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="yq3-8j-WBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbb-vU-uwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -430,7 +430,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EhK-2u-z8R"/>
+        <segue reference="0Lw-XS-WXc"/>
         <segue reference="inv-mW-E3d"/>
     </inferredMetricsTieBreakers>
 </document>

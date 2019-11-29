@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10743CB2391A756004D1650 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10743CA2391A756004D1650 /* ClassExtensions.swift */; };
 		F128306C238A1B3700EC22A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128306B238A1B3700EC22A9 /* AppDelegate.swift */; };
 		F128306E238A1B3700EC22A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128306D238A1B3700EC22A9 /* SceneDelegate.swift */; };
 		F1283073238A1B3700EC22A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1283071238A1B3700EC22A9 /* Main.storyboard */; };
@@ -19,9 +20,11 @@
 		F155A013239099F9002B5004 /* NewCampgroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A012239099F9002B5004 /* NewCampgroundVC.swift */; };
 		F155A01523909A2F002B5004 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01423909A2F002B5004 /* AccountVC.swift */; };
 		F155A01923909BB1002B5004 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01823909BB1002B5004 /* API.swift */; };
+		F155A01B2390A12B002B5004 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A01A2390A12B002B5004 /* responseObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F10743CA2391A756004D1650 /* ClassExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
 		F1283068238A1B3700EC22A9 /* YelpCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F128306B238A1B3700EC22A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F128306D238A1B3700EC22A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		F155A012239099F9002B5004 /* NewCampgroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCampgroundVC.swift; sourceTree = "<group>"; };
 		F155A01423909A2F002B5004 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		F155A01823909BB1002B5004 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F155A01A2390A12B002B5004 /* responseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				F155A01823909BB1002B5004 /* API.swift */,
+				F155A01A2390A12B002B5004 /* responseObject.swift */,
+				F10743CA2391A756004D1650 /* ClassExtensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,8 +219,10 @@
 				F155A00F23909948002B5004 /* CampgroundsVC.swift in Sources */,
 				F155A0092390983D002B5004 /* SignUpVC.swift in Sources */,
 				F155A013239099F9002B5004 /* NewCampgroundVC.swift in Sources */,
+				F155A01B2390A12B002B5004 /* responseObject.swift in Sources */,
 				F155A00B239098CB002B5004 /* LoginVC.swift in Sources */,
 				F155A01923909BB1002B5004 /* API.swift in Sources */,
+				F10743CB2391A756004D1650 /* ClassExtensions.swift in Sources */,
 				F128306E238A1B3700EC22A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
