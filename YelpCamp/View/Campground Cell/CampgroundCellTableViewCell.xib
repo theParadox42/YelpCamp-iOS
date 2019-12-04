@@ -9,58 +9,65 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campgroundCell" rowHeight="300" id="KGk-i7-Jjw" customClass="CampgroundCellTableViewCell" customModule="YelpCamp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campgroundCell" id="KGk-i7-Jjw" customClass="CampgroundCellTableViewCell" customModule="YelpCamp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="325"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="325"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campground Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-kU-Op2">
-                        <rect key="frame" x="20" y="10" width="280" height="29.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campground Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-kU-Op2">
+                        <rect key="frame" x="20" y="10" width="280" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-14-VD3">
-                        <rect key="frame" x="20" y="49.5" width="280" height="140"/>
+                        <rect key="frame" x="20" y="56" width="280" height="140"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="vl7-14-VD3" secondAttribute="height" multiplier="2:1" id="jyB-HD-ZAU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description about this great place here" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3ig-BW-OAe">
-                        <rect key="frame" x="20" y="229" width="280" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="QG5-ou-tbD"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3f-sH-atX">
-                        <rect key="frame" x="20" y="209.5" width="66" height="14.5"/>
+                        <rect key="frame" x="20" y="216" width="66" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a few seconds ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku7-9h-dLb">
-                        <rect key="frame" x="123" y="209.5" width="106" height="14.5"/>
+                        <rect key="frame" x="123" y="216" width="106" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDV-et-Siq">
-                        <rect key="frame" x="91" y="209.5" width="27" height="14.5"/>
+                        <rect key="frame" x="91" y="216" width="27" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price is $ per night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGr-h2-m46">
+                        <rect key="frame" x="20" y="235.5" width="280" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description about this great place here" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3ig-BW-OAe">
+                        <rect key="frame" x="20" y="255" width="280" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="9uU-vP-fe8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="HGr-h2-m46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3RK-vX-XOp"/>
                     <constraint firstItem="I3f-sH-atX" firstAttribute="top" secondItem="vl7-14-VD3" secondAttribute="bottom" constant="20" id="5cH-2Q-XwI"/>
                     <constraint firstAttribute="trailing" secondItem="vl7-14-VD3" secondAttribute="trailing" constant="20" id="6Xj-Gg-e89"/>
                     <constraint firstItem="Ku7-9h-dLb" firstAttribute="leading" secondItem="RDV-et-Siq" secondAttribute="trailing" constant="5" id="6mZ-xL-RuS"/>
-                    <constraint firstItem="3ig-BW-OAe" firstAttribute="top" secondItem="I3f-sH-atX" secondAttribute="bottom" constant="5" id="AYC-zO-X0g"/>
+                    <constraint firstItem="HGr-h2-m46" firstAttribute="top" secondItem="I3f-sH-atX" secondAttribute="bottom" constant="5" id="6xl-Ky-LXa"/>
                     <constraint firstItem="GGL-kU-Op2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="AuB-wO-PPl"/>
                     <constraint firstItem="vl7-14-VD3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="E2V-k1-UOo"/>
                     <constraint firstAttribute="trailing" secondItem="3ig-BW-OAe" secondAttribute="trailing" constant="20" id="Gvf-xG-kkv"/>
@@ -72,20 +79,22 @@
                     <constraint firstItem="Ku7-9h-dLb" firstAttribute="bottom" secondItem="RDV-et-Siq" secondAttribute="bottom" id="byT-qo-urB"/>
                     <constraint firstItem="Ku7-9h-dLb" firstAttribute="top" secondItem="vl7-14-VD3" secondAttribute="bottom" constant="20" id="clD-xj-rcH"/>
                     <constraint firstItem="vl7-14-VD3" firstAttribute="top" secondItem="GGL-kU-Op2" secondAttribute="bottom" constant="10" id="gcT-rj-MUB"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="3ig-BW-OAe" secondAttribute="bottom" constant="5" id="heS-a0-ZwP"/>
                     <constraint firstItem="GGL-kU-Op2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="qxB-vv-ICi"/>
                     <constraint firstItem="RDV-et-Siq" firstAttribute="top" secondItem="vl7-14-VD3" secondAttribute="bottom" constant="20" id="syl-Nc-hcF"/>
                     <constraint firstItem="3ig-BW-OAe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="tmu-Bo-DbG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="3ig-BW-OAe" secondAttribute="bottom" constant="10" id="vaI-X7-q8U"/>
+                    <constraint firstAttribute="trailing" secondItem="HGr-h2-m46" secondAttribute="trailing" constant="20" id="uw9-2b-ngb"/>
+                    <constraint firstItem="3ig-BW-OAe" firstAttribute="top" secondItem="HGr-h2-m46" secondAttribute="bottom" constant="5" id="zAp-g0-Gpw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="CampgroundView" destination="H2p-sc-9uM" id="yFO-II-M0g"/>
                 <outlet property="authorLabel" destination="RDV-et-Siq" id="dFe-ka-5pG"/>
-                <outlet property="campgroundImageView" destination="vl7-14-VD3" id="01O-tb-SyU"/>
-                <outlet property="campgroundNameLabel" destination="GGL-kU-Op2" id="O1a-3A-IDQ"/>
-                <outlet property="campgroundText" destination="3ig-BW-OAe" id="YFu-nD-E9v"/>
-                <outlet property="timeAgoLabel" destination="3ig-BW-OAe" id="RU9-Pr-9F5"/>
+                <outlet property="campgroundImage" destination="vl7-14-VD3" id="usy-HA-EPB"/>
+                <outlet property="descriptionLabel" destination="3ig-BW-OAe" id="FhC-Mc-UDa"/>
+                <outlet property="nameLabel" destination="GGL-kU-Op2" id="34n-5C-kJI"/>
+                <outlet property="priceLabel" destination="HGr-h2-m46" id="UZF-pi-hMK"/>
+                <outlet property="timeAgoLabel" destination="Ku7-9h-dLb" id="zYD-Dg-3DG"/>
             </connections>
             <point key="canvasLocation" x="150.72463768115944" y="112.5"/>
         </tableViewCell>

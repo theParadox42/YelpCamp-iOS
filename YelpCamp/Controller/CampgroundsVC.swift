@@ -9,6 +9,7 @@
 import UIKit
 
 class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
+    
 
     // Campground Array
     var campgrounds: [CampgroundObject] = []
@@ -25,7 +26,7 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
         // Send request to get campgrounds
         sendCampgroundRequest()
         
-        // Register your MessageCell.xib file here:
+        // Register your CampgroundCell.xib file here:
         campgroundTableView.register(UINib(nibName: "CampgroundCellTableViewCell", bundle: nil), forCellReuseIdentifier: "campgroundCell")
         
     }
@@ -70,7 +71,6 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return campgrounds.count
     }
 
@@ -87,10 +87,13 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
     }
     
     // Cell Delegate
-    func wasPressed(campground: CampgroundObject?) {
+    func campgroundPressed(campground: CampgroundProtocol) {
         
-        if setCampground == nil && campground != nil {
-            performSegue(withIdentifier: "showCampgroundFromCampgrounds", sender: self.self)
+        if setCampground == nil {
+            if let campgroundObject = campground as? CampgroundObject {
+                setCampground = campgroundObject
+                performSegue(withIdentifier: "showCampgroundFromCampgrounds", sender: self.self)
+            }
         }
         
     }
@@ -103,7 +106,8 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
         // Pass the selected object to the new view controller.
         
         if let campgroundVC = segue.destination as? CampgroundVC {
-            campgroundVC.campground = setCampground!
+            campgroundVC.campgroundID = setCampground!._id
+            setCampground = nil
         }
         
     }

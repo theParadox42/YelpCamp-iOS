@@ -17,16 +17,11 @@ class AccountVC: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
+        var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "logout")!)
+        urlRequest.httpMethod = "POST"
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

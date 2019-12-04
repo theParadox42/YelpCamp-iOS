@@ -12,6 +12,8 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -21,6 +23,12 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: Any) {
+        
+        // Disable button and start loading
+        loginButton.isEnabled = false
+        loadingIndicator.startAnimating()
+        
+        // Start urlRequest
         if let username = usernameTextField.text, let password = passwordTextField.text {
             if username == "" && password == "" {
                 usernameTextField.placeholder = "Enter Username"
@@ -77,15 +85,8 @@ class LoginVC: UIViewController {
         task.resume()
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

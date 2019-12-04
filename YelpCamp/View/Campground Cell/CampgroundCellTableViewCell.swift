@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CampgroundCellDelegate {
-    func wasPressed(campground: CampgroundObject?)
+    func campgroundPressed(campground: CampgroundProtocol)
 }
 
 class CampgroundCellTableViewCell: UITableViewCell {
@@ -20,10 +20,11 @@ class CampgroundCellTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeAgoLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     // Delegate
     var delegate: CampgroundCellDelegate?
-    var cellCampground: CampgroundObject?
+    var cellCampground: CampgroundProtocol?
     
     // Init
     override func awakeFromNib() {
@@ -31,14 +32,17 @@ class CampgroundCellTableViewCell: UITableViewCell {
     }
     
     // Set cell up
-    func setAttributes(campground: CampgroundObject) {
+    func setAttributes(campground: CampgroundProtocol) {
         cellCampground = campground
         
         nameLabel.text = campground.name
-//        campgroundImage.image = Fill in here
+        if let url = URL(string: campground.img) {
+            campgroundImage.load(url: url)
+        }
         authorLabel.text = campground.author.username
-//        timeAgoLabel.text = Fill in here
+        timeAgoLabel.text = campground.sinceCreated ?? "a few UNKNOWN ago"
         descriptionLabel.text = campground.description
+        priceLabel.text = "Price is $\(campground.price) per night"
     }
     
     // On Selection
@@ -47,7 +51,9 @@ class CampgroundCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         if selected == true {
-            delegate?.wasPressed(campground: cellCampground)
+            if let safeCampground = cellCampground {
+                delegate?.campgroundPressed(campground: safeCampground)
+            }
         }
     }
     
