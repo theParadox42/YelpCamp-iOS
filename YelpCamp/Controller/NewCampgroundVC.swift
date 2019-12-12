@@ -9,7 +9,9 @@
 import UIKit
 
 class NewCampgroundVC: UIViewController {
-
+    
+    //TODO: Everything
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

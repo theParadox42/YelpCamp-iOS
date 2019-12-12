@@ -10,6 +10,7 @@ import UIKit
 
 class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
     
+    //MARK: - Setup
 
     // Campground Array
     var campgrounds: [CampgroundObject] = []
@@ -31,6 +32,8 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
         
     }
     
+    
+    //MARK: - API Requests
     func sendCampgroundRequest(){
         
         let api = API(successFunc: { (data) in

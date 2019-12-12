@@ -10,6 +10,9 @@ import UIKit
 
 class SignUpVC: UIViewController {
 
+    //MARK: - Setup
+    
+    // IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -17,8 +20,14 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // User defaults
+    let userDefaults = UserDefaults.standard
+    
+    //MARK: - Buttons Pressed
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        // Dismiss View
+        dismiss(animated: true, completion: nil)
     }
     
     // Sign Up pressed
@@ -56,6 +65,8 @@ class SignUpVC: UIViewController {
         }
     }
     
+    //MARK: - Send API Request
+    
     func createURLRequest(username: String, email: String, password: String){
         
         // Create urlRequest
@@ -78,25 +89,25 @@ class SignUpVC: UIViewController {
                 let signUpResponse = try decoder.decode(RegularResponseObject.self, from: jsonData)
                 if signUpResponse.type == "success" {
                     print("Successfully signed user up!")
-                    self.performSegue(withIdentifier: "signUpToTabView", sender: self.self)
+                    self.successSignup(username: username, password: password)
                 } else {
                     print(signUpResponse.type)
                     print("Failed to sign user up!")
                     print(signUpResponse.data.message ?? "Unknown Reason")
                     print(signUpResponse.data.error?.message ?? "Unknown Error")
-                    self.performSegue(withIdentifier: "signUpToHome", sender: self.self)
+                    self.failedSignup()
                 }
             } catch {
                 print("Error decoding data")
                 print(error)
-                self.performSegue(withIdentifier: "signUpToHome", sender: self.self)
+                self.failedSignup()
             }
         }) { (error) in
             print("Error performing signup request")
             if let err = error {
                 print(err)
             }
-            self.performSegue(withIdentifier: "signUpToHome", sender: self.self)
+            self.failedSignup()
         }
         
         // Send Request
@@ -104,11 +115,14 @@ class SignUpVC: UIViewController {
         task.resume()
     }
     
-    @IBAction func cancelPressed(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
-        
+    private func failedSignup() {
+        performSegue(withIdentifier: "signUpToHome", sender: self.self)
     }
     
+    private func successSignup(username: String, password: String) {
+        self.performSegue(withIdentifier: "signUpToHome", sender: self.self)
+        userDefaults.set(username, forKey: "username")
+        userDefaults.set(password, forKey: "password")
+    }
 
 }

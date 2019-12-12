@@ -10,6 +10,8 @@ import UIKit
 
 class CampgroundVC: UIViewController, CommentViewDelegate {
     
+    //MARK: - Setup
+    
     // IBOutlets
     @IBOutlet weak var campgroundName: UILabel!
     @IBOutlet weak var campgroundImage: UIImageView!
@@ -52,6 +54,8 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         
     }
     
+    //MARK: - Get Campground Data
+    
     func getCampgroundData() -> CampgroundObject? {
         if let data = try? Data(contentsOf: URL(string: API.shared.urlString + "campgrounds/" + campgroundID)!) {
             let decoder = JSONDecoder()
@@ -70,11 +74,19 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         return nil
     }
     
+    //MARK: - IBActions
+    
     @IBAction func backPressed(_ sender: Any) {
-       
         self.dismiss(animated: true, completion: nil)
-        
     }
+    
+    @IBAction func authorButtonPressed(_ sender: Any) {
+        if let safeUsername = authorButton.titleLabel?.text {
+            goToProfile(username: safeUsername)
+        }
+    }
+    
+    //MARK: - API Requests
     
     func goToProfile(username: String){
         
@@ -99,18 +111,14 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         
     }
     
+    //MARK: - Delegate Methods
+    
     func usernamePressed(username: String) {
         goToProfile(username: username)
     }
     
     func commentCampgroundPressed(campground: CommentCampgroundObject) {
         // Not used but required to conform to protocol
-    }
-    
-    @IBAction func authorButtonPressed(_ sender: Any) {
-        if let safeUsername = authorButton.titleLabel?.text {
-            goToProfile(username: safeUsername)
-        }
     }
     
     // MARK: - Navigation

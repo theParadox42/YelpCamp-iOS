@@ -21,6 +21,8 @@ class API {
     let successFunc: (Data) -> Void
     let failureFunc: (Error?) -> Void
     
+    private let userDefaults = UserDefaults.standard
+    
     init(successFunc: (@escaping (Data) -> Void), failureFunc: (@escaping (Error?) -> Void)){
         self.successFunc = successFunc
         self.failureFunc = failureFunc
@@ -42,6 +44,21 @@ class API {
             }
         }
         
+    }
+    
+    func setAuth(urlRequest: URLRequest) -> URLRequest? {
+        if let username = userDefaults.value(forKey: "username") as? String {
+            if let password = userDefaults.value(forKey: "password") as? String {
+                // Thanks to Nate Cook @ Stackoverflow for this!
+                var changedRequest = urlRequest
+                let loginString = String(format: "%@:%@", username, password)
+                let loginData = loginString.data(using: String.Encoding.utf8)!
+                let base64LoginString = loginData.base64EncodedString()
+                changedRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                return changedRequest
+            }
+        }
+        return nil
     }
     
 }

@@ -8,16 +8,17 @@
 
 import UIKit
 
-class SearchVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CampgroundCellDelegate {
     
-
+    //MARK: - Setup
+    
     // IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    
     // Campground array
     var campgrounds: [CampgroundObject] = []
+    var sendCampgroundID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,8 @@ class SearchVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITa
                 self.searchFailed(error: nil)
             }
         }, failureFunc: self.searchFailed(error:))
-        URLSession.shared.dataTask(with: URL(string: API.shared.urlString + "/search?q=\(search)")!, completionHandler: searchAPI.handleResponse(data:response:error:))
+        let task = URLSession.shared.dataTask(with: URL(string: API.shared.urlString + "/search?q=\(search)")!, completionHandler: searchAPI.handleResponse(data:response:error:))
+        task.resume()
     }
     
     func searchFailed(error: Error?){
@@ -67,19 +69,32 @@ class SearchVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITa
     
     //MARK: - Table View methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return campgrounds.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "campgroundCell", for: indexPath) as! CampgroundCellTableViewCell
+        
+        let campground = campgrounds[indexPath.row]
+        
+        cell.setAttributes(campground: campground)
+        
+        cell.delegate = self
+
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+    // When a cell is pressed
+    func campgroundPressed(campground: CampgroundProtocol) {
+        sendCampgroundID = campground._id
+        performSegue(withIdentifier: "showCampgroundFromSearch", sender: self)
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let campgroundVC = segue.destination as? CampgroundVC {
+            campgroundVC.campgroundID = sendCampgroundID!
+        }
     }
     
 }

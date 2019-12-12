@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: - Setup
+    
     // Objects
     var accountProfile: AccountObject!
     private var comments: [CommentObject] = []
@@ -45,12 +47,14 @@ class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, 
         
     }
     
-    // MARK: - Navigation
+    //MARK: - IBActions
     
     // Dismiss view controller
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: - Delegate Protocol Methods
     
     // On any campground pressed
     func campgroundPressed(campground: CampgroundProtocol) {
@@ -62,6 +66,13 @@ class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, 
         sendCampgroundID = campground.id
         performSegue(withIdentifier: "goToCampgroundFromProfile", sender: self)
     }
+    
+    // Useless function
+    func usernamePressed(username: String) {
+        // Won't do anything because the only links will be to this page
+    }
+    
+    //MARK: - API Requests
     
     // Get a campground
     func getCampground(campground: CampgroundProtocol) -> CampgroundObject? {
@@ -80,19 +91,6 @@ class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, 
             }
         }
         return nil
-    }
-    
-    
-    // Get ready for view controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let campgroundVC = segue.destination as? CampgroundVC {
-            campgroundVC.campgroundID = sendCampgroundID
-        }
-    }
-    
-    // Useless function
-    func usernamePressed(username: String) {
-        // Won't do anything because the only links will be to this page
     }
     
     //MARK: - TableView Methods
@@ -130,6 +128,16 @@ class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, 
             return cell
         }
         return UITableViewCell()
+    }
+    
+    
+    //MARK: - Navigation
+    
+    // Get ready for view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let campgroundVC = segue.destination as? CampgroundVC {
+            campgroundVC.campgroundID = sendCampgroundID
+        }
     }
     
 }

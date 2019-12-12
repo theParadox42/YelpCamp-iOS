@@ -30,6 +30,7 @@
 		F1D220F023930DCB00B13DC5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D220EF23930DCB00B13DC5 /* ProfileVC.swift */; };
 		F1D220F22393196300B13DC5 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D220F12393196300B13DC5 /* CommentView.swift */; };
 		F1D220F42393197000B13DC5 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D220F32393197000B13DC5 /* CommentView.xib */; };
+		F1E4A9B723A1C46B00A1B0A9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4A9B623A1C46B00A1B0A9 /* HomeVC.swift */; };
 		F1F7153923943F920089A3F9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7153723943F920089A3F9 /* CommentCell.swift */; };
 		F1F7153A23943F920089A3F9 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F7153823943F920089A3F9 /* CommentCell.xib */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		F1D220EF23930DCB00B13DC5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		F1D220F12393196300B13DC5 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F1D220F32393197000B13DC5 /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
+		F1E4A9B623A1C46B00A1B0A9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F1F7153723943F920089A3F9 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		F1F7153823943F920089A3F9 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 		F155A00723909812002B5004 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F1E4A9B623A1C46B00A1B0A9 /* HomeVC.swift */,
 				F155A0082390983D002B5004 /* SignUpVC.swift */,
 				F155A00A239098CB002B5004 /* LoginVC.swift */,
 				F155A00E23909948002B5004 /* CampgroundsVC.swift */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F7153923943F920089A3F9 /* CommentCell.swift in Sources */,
+				F1E4A9B723A1C46B00A1B0A9 /* HomeVC.swift in Sources */,
 				F155A01523909A2F002B5004 /* AccountVC.swift in Sources */,
 				F155A011239099B9002B5004 /* SearchVC.swift in Sources */,
 				F1B50149239434BC008B77E6 /* BasicDataModel.swift in Sources */,

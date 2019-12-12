@@ -11,7 +11,7 @@
         <!--YelpCamp-->
         <scene sceneID="gfG-fN-KFu">
             <objects>
-                <viewController id="dFk-hn-UIr" sceneMemberID="viewController">
+                <viewController id="dFk-hn-UIr" customClass="HomeVC" customModule="YelpCamp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KeO-Hy-ECx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,6 +77,10 @@
                         <viewLayoutGuide key="safeArea" id="tyN-is-ZbR"/>
                     </view>
                     <navigationItem key="navigationItem" title="YelpCamp" id="dXz-sd-ZeE"/>
+                    <connections>
+                        <outlet property="loginButton" destination="uKh-4B-j0b" id="41V-BI-VBi"/>
+                        <outlet property="signUpButton" destination="V9N-Tv-cgx" id="cSF-AC-O2E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9I-ep-Xny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,8 +189,7 @@
                                     <navigationItem title="Account" id="Twc-fn-KLB">
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="XLH-fv-S5c">
                                             <connections>
-                                                <action selector="logoutPressed:" destination="Utl-fP-v6G" id="qDz-AM-O0v"/>
-                                                <segue destination="dFk-hn-UIr" kind="presentation" modalPresentationStyle="fullScreen" id="6Fd-TF-ueX"/>
+                                                <action selector="logoutPressed:" destination="Utl-fP-v6G" id="Ugz-mo-7cn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -202,6 +205,9 @@
                         <viewLayoutGuide key="safeArea" id="lbh-1E-r1c"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" id="MP9-35-IIp"/>
+                    <connections>
+                        <segue destination="dFk-hn-UIr" kind="presentation" identifier="loggedOutSegue" modalPresentationStyle="fullScreen" id="vyM-oN-rpD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZL-ZS-I9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
