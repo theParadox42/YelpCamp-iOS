@@ -20,16 +20,39 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let username = userDefaults.value(forKey: "username") as? String,
-            let password = userDefaults.value(forKey: "password") as? String {
+        
+        if let signinRequest = API.shared.setAuth(urlRequest: URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)) {
             
-            print(username)
-            print(password)
+            let loadingAlert = UIAlertController(title: "Loading", message: "Signing In...", preferredStyle: .alert)
+            present(loadingAlert, animated: true)
             
+            let api = API(successFunc: { (data) in
+                do {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(RegularResponseObject.self, from: data)
+                    if response.type == "success" {
+                        
+                    }
+                } catch {
+                    print("Error decoding response")
+                    print(error)
+                }
+                loadingAlert.dismiss(animated: true, completion: nil)
+            }) { (error) in
+                loadingAlert.dismiss(animated: true, completion: nil)
+            }
             
+            let signinTask = URLSession.shared.dataTask(with: signinRequest, completionHandler: api.handleResponse(data:response:error:))
+            
+            signinTask.resume()
             
         }
         
+    }
+    
+    func signinFailed() {
+        let failedAlert = UIAlertController(title: "Signin Failed", message: "Automatic Sign In Failed.", preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     }
     
 

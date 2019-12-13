@@ -28,6 +28,7 @@ class API {
         self.failureFunc = failureFunc
     }
     
+    
     func handleResponse(data: Data?, response: URLResponse?, error: Error?) {
         if let err = error {
             DispatchQueue.main.async {
@@ -43,7 +44,6 @@ class API {
                 self.failureFunc(nil)
             }
         }
-        
     }
     
     func setAuth(urlRequest: URLRequest) -> URLRequest? {

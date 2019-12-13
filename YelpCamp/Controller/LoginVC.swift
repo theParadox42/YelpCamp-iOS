@@ -33,16 +33,12 @@ class LoginVC: UIViewController {
         
         // Start urlRequest
         if let username = usernameTextField.text, let password = passwordTextField.text {
-            if username == "" && password == "" {
-                usernameTextField.placeholder = "Enter Username"
-                passwordTextField.placeholder = "Enter Password"
-            } else {
-                performURLRequest(username: username, password: password)
+            if username != "" && password != "" {
+                return performURLRequest(username: username, password: password)
             }
-        } else {
-            usernameTextField.placeholder = "Enter Username"
-            passwordTextField.placeholder = "Enter Password"
         }
+        let enterInfo = UIAlertController(title: "Enter Info", message: "Please enter both a username and password", preferredStyle: .alert)
+        enterInfo.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     }
     
     func performURLRequest(username: String, password: String){
@@ -50,13 +46,6 @@ class LoginVC: UIViewController {
         var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "login")!)
         urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "POST"
-        
-        // Create HTTPBody
-        let parameters: [String: Any] = [
-            "username": username,
-            "password": password,
-        ]
-        urlRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
         
         let api = API(successFunc: { (jsonData) in
             let decoder = JSONDecoder()
@@ -66,26 +55,40 @@ class LoginVC: UIViewController {
                     print("Successfully logged user in!")
                     self.performSegue(withIdentifier: "loggedInToTabView", sender: self.self)
                 } else {
-                    print(loggedInResponse)
-                    self.passwordTextField.text = ""
-                    self.passwordTextField.placeholder = "Password Doesn't Match Username"
+                    let failedAlert = UIAlertController(title: "Wrong Credentials", message: "Either your username or password were wrong", preferredStyle: .alert)
+                    failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                        self.usernameTextField.text = ""
+                        self.passwordTextField.text = ""
+                    }))
                 }
             } catch {
                 print("Error decoding data")
                 print(error)
-                self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+                self.failedLogin()
             }
         }) { (error) in
             print("Error performing signup request")
             if let err = error {
                 print(err)
             }
-            self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+            self.failedLogin()
         }
         
-        // Send Request
-        let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: api.handleResponse(data:response:error:))
-        task.resume()
+        
+        if let safeRequest = API.shared.setAuth(urlRequest: urlRequest) {
+            // Send Request
+            let task = URLSession.shared.dataTask(with: safeRequest, completionHandler: api.handleResponse(data:response:error:))
+            task.resume()
+        }
+    }
+    
+    func failedLogin() {
+
+        self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+    }
+    
+    func succeededLogin() {
+        
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
