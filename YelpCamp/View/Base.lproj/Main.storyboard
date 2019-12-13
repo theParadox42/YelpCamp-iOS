@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="loginButton" destination="uKh-4B-j0b" id="41V-BI-VBi"/>
                         <outlet property="signUpButton" destination="V9N-Tv-cgx" id="cSF-AC-O2E"/>
+                        <segue destination="Rto-rN-Vro" kind="presentation" identifier="quickLoginSegue" modalPresentationStyle="fullScreen" id="wZK-Lp-nEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9I-ep-Xny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -190,7 +191,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="XLH-fv-S5c">
                                             <connections>
                                                 <action selector="logoutPressed:" destination="Utl-fP-v6G" id="Ugz-mo-7cn"/>
-                                                <segue destination="dFk-hn-UIr" kind="presentation" modalPresentationStyle="fullScreen" id="Oj3-QV-0gx"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -206,6 +206,9 @@
                         <viewLayoutGuide key="safeArea" id="lbh-1E-r1c"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" id="MP9-35-IIp"/>
+                    <connections>
+                        <segue destination="dFk-hn-UIr" kind="presentation" identifier="loggedOutSegue" modalPresentationStyle="fullScreen" id="RaJ-rd-qEX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZL-ZS-I9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -657,6 +660,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5Fu-7u-nRn"/>
-        <segue reference="0Lw-XS-WXc"/>
+        <segue reference="wZK-Lp-nEe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,13 +10,20 @@ import UIKit
 
 class AccountVC: UIViewController {
     
-    let userDefaults = UserDefaults.standard
+    // User Defaults (for logging out)
+    private let userDefaults = UserDefaults.standard
+    
+    override func viewDidLoad() {
+        
+    }
     
     //MARK: - Logout user
     @IBAction func logoutPressed(_ sender: Any) {
         
         userDefaults.removeObject(forKey: "username")
         userDefaults.removeObject(forKey: "password")
+        
+        performSegue(withIdentifier: "loggedOutSegue", sender: self)
         
     }
 

@@ -17,29 +17,35 @@ class HomeVC: UIViewController {
     // userDefaults
     private var userDefaults = UserDefaults.standard
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        
-        if let signinRequest = API.shared.setAuth(urlRequest: URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)) {
+        if var signinRequest = API.shared.setAuth(urlRequest: URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)) {
             
+            signinRequest.httpMethod = "POST"
+            
+            // set loading alert
             let loadingAlert = UIAlertController(title: "Loading", message: "Signing In...", preferredStyle: .alert)
             present(loadingAlert, animated: true)
             
             let api = API(successFunc: { (data) in
+                loadingAlert.dismiss(animated: true, completion: nil)
                 do {
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(RegularResponseObject.self, from: data)
                     if response.type == "success" {
-                        
+                        return self.signinSucceeded()
+                    } else {
+                        print(response)
                     }
                 } catch {
                     print("Error decoding response")
                     print(error)
                 }
-                loadingAlert.dismiss(animated: true, completion: nil)
+                self.signinFailed()
             }) { (error) in
                 loadingAlert.dismiss(animated: true, completion: nil)
+                self.signinFailed()
             }
             
             let signinTask = URLSession.shared.dataTask(with: signinRequest, completionHandler: api.handleResponse(data:response:error:))
@@ -53,6 +59,13 @@ class HomeVC: UIViewController {
     func signinFailed() {
         let failedAlert = UIAlertController(title: "Signin Failed", message: "Automatic Sign In Failed.", preferredStyle: .alert)
         failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        present(failedAlert, animated: true, completion: nil)
+    }
+    
+    func signinSucceeded() {
+        performSegue(withIdentifier: "quickLoginSegue", sender: self)
+        print("got there")
     }
     
 

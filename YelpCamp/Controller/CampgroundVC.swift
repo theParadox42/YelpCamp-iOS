@@ -25,8 +25,8 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     var campgroundID: String!
     var sendAccount: AccountObject?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         if let campground = getCampgroundData() {
         
