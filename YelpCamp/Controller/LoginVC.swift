@@ -18,12 +18,9 @@ class LoginVC: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    // Defaults
+    let userDefaults = UserDefaults.standard
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     @IBAction func loginPressed(_ sender: Any) {
         
@@ -41,9 +38,10 @@ class LoginVC: UIViewController {
         enterInfo.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     }
     
+    // Perform login request
     func performURLRequest(username: String, password: String){
         // Create urlRequest
-        var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "login")!)
+        var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)
         urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "POST"
         
@@ -53,42 +51,49 @@ class LoginVC: UIViewController {
                 let loggedInResponse = try decoder.decode(RegularResponseObject.self, from: jsonData)
                 if loggedInResponse.type == "success" {
                     print("Successfully logged user in!")
-                    self.performSegue(withIdentifier: "loggedInToTabView", sender: self.self)
+                    self.succeededLogin()
                 } else {
-                    let failedAlert = UIAlertController(title: "Wrong Credentials", message: "Either your username or password were wrong", preferredStyle: .alert)
-                    failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-                        self.usernameTextField.text = ""
-                        self.passwordTextField.text = ""
-                    }))
+                    self.failedLogin(changeSegues: false)
                 }
             } catch {
                 print("Error decoding data")
-                print(error)
-                self.failedLogin()
+                self.failedLogin(changeSegues: true)
             }
         }) { (error) in
             print("Error performing signup request")
-            if let err = error {
-                print(err)
-            }
-            self.failedLogin()
+            self.failedLogin(changeSegues: true)
         }
         
-        
-        if let safeRequest = API.shared.setAuth(urlRequest: urlRequest) {
-            // Send Request
-            let task = URLSession.shared.dataTask(with: safeRequest, completionHandler: api.handleResponse(data:response:error:))
-            task.resume()
-        }
+        userDefaults.set(username, forKey: "username")
+        userDefaults.set(password, forKey: "password")
+        let authRequest = API.shared.setAuth(urlRequest: urlRequest)!
+        // Send Request
+        let task = URLSession.shared.dataTask(with: authRequest, completionHandler: api.handleResponse(data:response:error:))
+        task.resume()
     }
     
-    func failedLogin() {
-
-        self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+    func failedLogin(changeSegues: Bool) {
+        let failedAlert = UIAlertController(title: "Wrong Credentials", message: "Either your username or password were wrong", preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            self.usernameTextField.text = ""
+            self.passwordTextField.text = ""
+            if changeSegues {
+                self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+            } else {
+                self.loginButton.isEnabled = true
+            }
+        }));
+        
+        present(failedAlert, animated: true)
+        loadingIndicator.stopAnimating()
+        
+        userDefaults.removeObject(forKey: "username")
+        userDefaults.removeObject(forKey: "password")
+        
     }
     
     func succeededLogin() {
-        
+        performSegue(withIdentifier: "loggedInToTabView", sender: self.self)
     }
     
     @IBAction func cancelPressed(_ sender: Any) {

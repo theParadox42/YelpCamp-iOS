@@ -47,8 +47,8 @@ class API {
     }
     
     func setAuth(urlRequest: URLRequest) -> URLRequest? {
-        if let username = userDefaults.value(forKey: "username") as? String {
-            if let password = userDefaults.value(forKey: "password") as? String {
+        if let username = userDefaults.string(forKey: "username") {
+            if let password = userDefaults.string(forKey: "password") {
                 // Thanks to Nate Cook @ Stackoverflow for this!
                 var changedRequest = urlRequest
                 let loginString = String(format: "%@:%@", username, password)

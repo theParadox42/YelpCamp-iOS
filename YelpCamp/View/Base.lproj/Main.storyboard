@@ -190,6 +190,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="XLH-fv-S5c">
                                             <connections>
                                                 <action selector="logoutPressed:" destination="Utl-fP-v6G" id="Ugz-mo-7cn"/>
+                                                <segue destination="dFk-hn-UIr" kind="presentation" modalPresentationStyle="fullScreen" id="Oj3-QV-0gx"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -205,9 +206,6 @@
                         <viewLayoutGuide key="safeArea" id="lbh-1E-r1c"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" id="MP9-35-IIp"/>
-                    <connections>
-                        <segue destination="dFk-hn-UIr" kind="presentation" identifier="loggedOutSegue" modalPresentationStyle="fullScreen" id="vyM-oN-rpD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZL-ZS-I9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
