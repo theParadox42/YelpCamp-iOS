@@ -25,11 +25,15 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     var campgroundID: String!
     var sendAccount: AccountObject?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // When an error occurs getting data
+    private var errorOccurred: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         if let campground = getCampgroundData() {
-        
+            
+            // Set campground info
             campgroundName.text = campground.name
             if let url = URL(string: campground.img){
                 campgroundImage.load(url: url)
@@ -39,7 +43,7 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
             descriptionLabel.text = campground.description
             priceLabel.text = "Costs $\(campground.price) per night"
             
-            
+            // Load comments in
             for comment in campground.comments {
                 let commentView = CommentView()
                 commentView.setCommentAttributes(comment: comment)
@@ -48,7 +52,15 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
             }
             
         } else {
-            print("Dismissing...")
+            errorOccurred = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // If error occurred, dismiss view controller
+        if errorOccurred {
             dismiss(animated: true, completion: nil)
         }
         
