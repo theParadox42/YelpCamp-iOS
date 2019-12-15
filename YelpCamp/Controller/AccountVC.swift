@@ -10,6 +10,7 @@ import UIKit
 
 class AccountVC: UIViewController {
     
+    //MARK: - Setup
     // User Defaults (for logging out)
     private let userDefaults = UserDefaults.standard
     

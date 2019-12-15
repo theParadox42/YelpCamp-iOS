@@ -28,6 +28,7 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     // When an error occurs getting data
     private var errorOccurred: Bool = false
     
+    //MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,12 +57,16 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         }
     }
     
+    //MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // If error occurred, dismiss view controller
         if errorOccurred {
-            dismiss(animated: true, completion: nil)
+            let errorAlert = UIAlertController(title: "Error", message: "An error occurred loading this campground. Make sure it exists.", preferredStyle: .alert)
+            errorAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
         }
         
     }

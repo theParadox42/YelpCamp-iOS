@@ -38,31 +38,27 @@ class SignUpVC: UIViewController {
         // Start loading thing
         loadingIndicator.startAnimating()
         
+        var alertHeader = "Passwords Do Not Match"
+        var alertMessage = "Make sure your passwords match before signing up."
+        
         // Make Sure Inputs Aren't Empty
         if passwordTextField.text == "" || usernameTextField.text == "" || emailTextField.text == "" {
-            usernameTextField.placeholder = "Enter Username"
-            emailTextField.placeholder = "Enter Email"
-            passwordTextField.placeholder = "Enter Password"
-            return
+            alertHeader = "Missing Info"
+            alertMessage = "Please fill in all the boxes before signing up"
         }
         // Make sure passwords match
         else if passwordTextField.text != confirmPasswordTextField.text {
-            print("Passwords do not match")
-            passwordTextField.text = ""
-            confirmPasswordTextField.text = ""
-            passwordTextField.placeholder = "Passwords Do Not Match!"
+            self.passwordTextField.text = ""
+            self.confirmPasswordTextField.text = ""
+        }
+        // make sure inputs exist
+        else if let password = passwordTextField.text, let username = usernameTextField.text, let email = emailTextField.text {
+            createURLRequest(username: username, email: email, password: password)
             return
         }
-        
-        // make sure inputs exist
-        if let password = passwordTextField.text, let username = usernameTextField.text, let email = emailTextField.text {
-            
-            createURLRequest(username: username, email: email, password: password)
-        } else {
-            usernameTextField.placeholder = "Enter Username"
-            emailTextField.placeholder = "Enter Email"
-            passwordTextField.placeholder = "Enter Password"
-        }
+        let alert = UIAlertController(title: alertHeader, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Send API Request
@@ -88,26 +84,17 @@ class SignUpVC: UIViewController {
             do {
                 let signUpResponse = try decoder.decode(RegularResponseObject.self, from: jsonData)
                 if signUpResponse.type == "success" {
-                    print("Successfully signed user up!")
-                    self.successSignup(username: username, password: password)
+                    self.succeededSignup(username: username, password: password)
                 } else {
-                    print(signUpResponse.type)
-                    print("Failed to sign user up!")
-                    print(signUpResponse.data.message ?? "Unknown Reason")
-                    print(signUpResponse.data.error?.message ?? "Unknown Error")
-                    self.failedSignup()
+                    self.failedSignup(reason: signUpResponse.data.error?.message ?? signUpResponse.data.message ?? "Failed to sign user up!")
                 }
             } catch {
                 print("Error decoding data")
                 print(error)
-                self.failedSignup()
+                self.failedSignup(reason: "Unknown Reason")
             }
         }) { (error) in
-            print("Error performing signup request")
-            if let err = error {
-                print(err)
-            }
-            self.failedSignup()
+            self.failedSignup(reason: "Try Checking Your Internet!")
         }
         
         // Send Request
@@ -115,14 +102,21 @@ class SignUpVC: UIViewController {
         task.resume()
     }
     
-    private func failedSignup() {
-        performSegue(withIdentifier: "signUpToHome", sender: self.self)
+    //MARK: - Handle outcomes
+    
+    private func failedSignup(reason message: String) {
+        let failedAlert = UIAlertController(title: "Failed Sign Up", message: message, preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            self.signUpButton.isEnabled = true
+            self.loadingIndicator.stopAnimating()
+        }))
+        present(failedAlert, animated: true, completion: nil)
     }
     
-    private func successSignup(username: String, password: String) {
-        self.performSegue(withIdentifier: "signUpToHome", sender: self.self)
+    private func succeededSignup(username: String, password: String) {
         userDefaults.set(username, forKey: "username")
         userDefaults.set(password, forKey: "password")
+        self.performSegue(withIdentifier: "signUpToTabView", sender: self.self)
     }
 
 }

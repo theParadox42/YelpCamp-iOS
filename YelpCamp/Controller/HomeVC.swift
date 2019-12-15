@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     // userDefaults
     private var userDefaults = UserDefaults.standard
     
+    //MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -56,27 +57,16 @@ class HomeVC: UIViewController {
         
     }
     
+    //MARK: - Request Outcomes
+    
     func signinFailed() {
         let failedAlert = UIAlertController(title: "Signin Failed", message: "Automatic Sign In Failed.", preferredStyle: .alert)
         failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
         present(failedAlert, animated: true, completion: nil)
     }
     
     func signinSucceeded() {
         performSegue(withIdentifier: "quickLoginSegue", sender: self)
-        print("got there")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

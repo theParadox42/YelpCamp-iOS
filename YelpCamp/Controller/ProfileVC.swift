@@ -24,7 +24,7 @@ class ProfileVC: UIViewController, CampgroundCellDelegate, CommentCellDelegate, 
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var joinedAgoLabel: UILabel!
     
-    // Load function
+    //MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         

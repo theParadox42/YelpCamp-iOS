@@ -27,7 +27,7 @@ class CampgroundsVC: UITableViewController, CampgroundCellDelegate {
         // Send request to get campgrounds
         sendCampgroundRequest()
         
-        // Register your CampgroundCell.xib file here:
+        // Register my campground cell file
         campgroundTableView.register(UINib(nibName: "CampgroundCellTableViewCell", bundle: nil), forCellReuseIdentifier: "campgroundCell")
         
     }

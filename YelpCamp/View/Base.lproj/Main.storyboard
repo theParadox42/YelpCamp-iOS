@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="912" y="491"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="YFj-ig-wJD">
             <objects>
-                <viewController id="Bbi-ky-de5" customClass="SearchVC" customModule="YelpCamp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search View Controller" extendedLayoutIncludesOpaqueBars="YES" id="Bbi-ky-de5" customClass="SearchVC" customModule="YelpCamp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5eb-gt-3We">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,9 +167,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="v2D-j2-40b"/>
                     <connections>
+                        <outlet property="campgroundTableView" destination="06s-j1-Deq" id="cl7-sP-gEm"/>
                         <outlet property="loadingIndicator" destination="397-GG-myb" id="tYv-sy-sxY"/>
                         <outlet property="searchBar" destination="qwU-Z8-f1Q" id="LAl-Ng-RYJ"/>
-                        <segue destination="bgS-tg-edr" kind="presentation" identifier="showCampgroundFromSearch" id="5Fu-7u-nRn"/>
+                        <segue destination="bgS-tg-edr" kind="presentation" identifier="showCampgroundFromSearch" modalPresentationStyle="fullScreen" id="5Fu-7u-nRn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xd-i0-l9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -219,17 +220,17 @@
             <objects>
                 <viewController storyboardIdentifier="CampgroundVC" title="Campground" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bgS-tg-edr" customClass="CampgroundVC" customModule="YelpCamp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="61X-t3-lly">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpC-ZK-Vmw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXK-Mi-xHX" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-Bc-DCo">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                                 <items>
                                                     <navigationItem title="Campground" id="KMW-08-PWP">
                                                         <barButtonItem key="leftBarButtonItem" title="Back" image="arrowshape.turn.up.left" catalog="system" id="Juo-wZ-LH2">
@@ -241,53 +242,53 @@
                                                 </items>
                                             </navigationBar>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campground Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wq-FH-C9d">
-                                                <rect key="frame" x="20" y="76" width="374" height="48"/>
+                                                <rect key="frame" x="20" y="64" width="374" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-Op-82o">
-                                                <rect key="frame" x="20" y="134" width="374" height="249.5"/>
+                                                <rect key="frame" x="20" y="122" width="374" height="249.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gTj-Op-82o" secondAttribute="height" multiplier="3:2" id="CUb-HN-pU4"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oej-rR-a7f">
-                                                <rect key="frame" x="20" y="398.5" width="90" height="30"/>
+                                                <rect key="frame" x="20" y="386.5" width="90" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghz-4W-bKt">
-                                                <rect key="frame" x="115" y="398.5" width="71" height="30"/>
+                                                <rect key="frame" x="115" y="386.5" width="71" height="30"/>
                                                 <state key="normal" title="Username"/>
                                                 <connections>
                                                     <action selector="authorButtonPressed:" destination="bgS-tg-edr" eventType="touchUpInside" id="5Vp-AL-7E8"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this long ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mD-Od-zH5">
-                                                <rect key="frame" x="191" y="398.5" width="98.5" height="30"/>
+                                                <rect key="frame" x="191" y="386.5" width="98.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trB-E5-vW3">
-                                                <rect key="frame" x="20" y="500" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="488" width="374" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-Sp-Mh2">
-                                                <rect key="frame" x="20" y="540" width="374" height="228"/>
+                                                <rect key="frame" x="20" y="528" width="374" height="250"/>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price per night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrY-Bo-TJB">
-                                                <rect key="frame" x="20" y="438.5" width="374" height="21"/>
+                                                <rect key="frame" x="20" y="426.5" width="374" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description goes here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-AG-BGI">
-                                                <rect key="frame" x="20" y="469.5" width="374" height="20.5"/>
+                                                <rect key="frame" x="20" y="457.5" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -352,7 +353,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1aY-RW-u7t"/>
                     </view>
-                    <navigationItem key="navigationItem" id="v1l-2d-vgL"/>
+                    <navigationItem key="navigationItem" id="v1l-2d-vgL">
+                        <connections>
+                            <outlet property="backBarButtonItem" destination="Juo-wZ-LH2" id="Gag-Wj-by7"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorButton" destination="ghz-4W-bKt" id="Wel-JN-FMe"/>
                         <outlet property="campgroundImage" destination="gTj-Op-82o" id="9ou-RW-IGW"/>
@@ -659,7 +664,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Fu-7u-nRn"/>
+        <segue reference="wIM-7F-pzf"/>
         <segue reference="0Lw-XS-WXc"/>
     </inferredMetricsTieBreakers>
 </document>

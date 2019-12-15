@@ -21,7 +21,7 @@ class LoginVC: UIViewController {
     // Defaults
     let userDefaults = UserDefaults.standard
     
-    
+    //MARK: - Login Pressed
     @IBAction func loginPressed(_ sender: Any) {
         
         // Disable button and start loading
@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
         enterInfo.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     }
     
-    // Perform login request
+    //MARK: - Send API Request
     func performURLRequest(username: String, password: String){
         // Create urlRequest
         var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)
@@ -72,13 +72,14 @@ class LoginVC: UIViewController {
         task.resume()
     }
     
+    //MARK: - Outcomes
     func failedLogin(changeSegues: Bool) {
         let failedAlert = UIAlertController(title: "Wrong Credentials", message: "Either your username or password were wrong", preferredStyle: .alert)
         failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
             self.usernameTextField.text = ""
             self.passwordTextField.text = ""
             if changeSegues {
-                self.performSegue(withIdentifier: "loggedInToHome", sender: self.self)
+                self.dismiss(animated: true, completion: nil)
             } else {
                 self.loginButton.isEnabled = true
             }
@@ -96,6 +97,7 @@ class LoginVC: UIViewController {
         performSegue(withIdentifier: "loggedInToTabView", sender: self.self)
     }
     
+    //MARK: - Cancel Pressed
     @IBAction func cancelPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
