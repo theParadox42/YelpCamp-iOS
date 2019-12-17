@@ -70,12 +70,14 @@
                     <constraint firstItem="I3f-sH-atX" firstAttribute="leading" secondItem="vl7-14-VD3" secondAttribute="leading" id="Aup-7B-laT"/>
                     <constraint firstItem="I3f-sH-atX" firstAttribute="bottom" secondItem="RDV-et-Siq" secondAttribute="bottom" id="OLL-KO-H4Z"/>
                     <constraint firstItem="RDV-et-Siq" firstAttribute="leading" secondItem="I3f-sH-atX" secondAttribute="trailing" constant="5" id="QV4-2y-MvV"/>
+                    <constraint firstItem="GGL-kU-Op2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="YZc-Px-cJy"/>
                     <constraint firstItem="Ku7-9h-dLb" firstAttribute="bottom" secondItem="RDV-et-Siq" secondAttribute="bottom" id="byT-qo-urB"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="CA5-wN-PIg" secondAttribute="bottom" constant="10" id="dit-pJ-Qdo"/>
                     <constraint firstItem="GGL-kU-Op2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eQJ-Fc-FyH"/>
                     <constraint firstItem="Ku7-9h-dLb" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="vl7-14-VD3" secondAttribute="trailing" id="eib-gn-sey"/>
                     <constraint firstItem="vl7-14-VD3" firstAttribute="top" secondItem="GGL-kU-Op2" secondAttribute="bottom" constant="10" id="gcT-rj-MUB"/>
                     <constraint firstItem="CA5-wN-PIg" firstAttribute="top" secondItem="HGr-h2-m46" secondAttribute="bottom" constant="5" id="kIx-vf-x9l"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GGL-kU-Op2" secondAttribute="trailing" constant="20" id="mNr-gS-2pg"/>
                     <constraint firstItem="HGr-h2-m46" firstAttribute="leading" secondItem="GGL-kU-Op2" secondAttribute="leading" id="nMG-M3-uow"/>
                     <constraint firstItem="CA5-wN-PIg" firstAttribute="leading" secondItem="GGL-kU-Op2" secondAttribute="leading" id="nxX-Hz-Hid"/>
                     <constraint firstItem="HGr-h2-m46" firstAttribute="trailing" secondItem="GGL-kU-Op2" secondAttribute="trailing" id="qoe-o7-a7Q"/>
