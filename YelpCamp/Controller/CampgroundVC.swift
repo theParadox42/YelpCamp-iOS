@@ -61,12 +61,15 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        print("Why didn't it work?")
+        
         // If error occurred, dismiss view controller
         if errorOccurred {
             let errorAlert = UIAlertController(title: "Error", message: "An error occurred loading this campground. Make sure it exists.", preferredStyle: .alert)
             errorAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
+            present(errorAlert, animated: true, completion: nil)
         }
         
     }
