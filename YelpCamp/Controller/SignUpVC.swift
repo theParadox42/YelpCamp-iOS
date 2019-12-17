@@ -66,9 +66,9 @@ class SignUpVC: UIViewController {
     func createURLRequest(username: String, email: String, password: String){
         
         // Create urlRequest
-        var urlRequest = URLRequest(url: URL(string: API.shared.urlString + "register")!)
-        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "POST"
+        var signUpRequest = URLRequest(url: URL(string: API.shared.urlString + "register")!)
+        signUpRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        signUpRequest.httpMethod = "POST"
         
         // Create HTTPBody
         let parameters: [String: Any] = [
@@ -77,7 +77,7 @@ class SignUpVC: UIViewController {
             "password": password,
             "admincode": API.shared.adminCode
         ]
-        urlRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
+        signUpRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
         
         let api = API(successFunc: { (jsonData) in
             let decoder = JSONDecoder()
@@ -98,7 +98,7 @@ class SignUpVC: UIViewController {
         }
         
         // Send Request
-        let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: api.handleResponse(data:response:error:))
+        let task = URLSession.shared.dataTask(with: signUpRequest, completionHandler: api.handleResponse(data:response:error:))
         task.resume()
     }
     

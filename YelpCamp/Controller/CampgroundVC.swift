@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CampgroundVC: UIViewController, CommentViewDelegate {
+class CampgroundVC: UIViewController, CommentViewDelegate, UITextFieldDelegate {
     
     //MARK: - Setup
     
@@ -19,7 +19,11 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     @IBOutlet weak var timeAgoLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var commentStack: UIStackView!
+    
     
     // Campground Object
     var campgroundID: String!
@@ -28,36 +32,20 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
     // When an error occurs getting data
     private var errorOccurred: Bool = false
     
-    //MARK: - View Did Load
+    // Cached CommentViews
+    var commentViews: [CommentView] = []
+    
+    
+    //MARK: - Start Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let campground = getCampgroundData() {
-            
-            // Set campground info
-            campgroundName.text = campground.name
-            if let url = URL(string: campground.img){
-                campgroundImage.load(url: url)
-            }
-            authorButton.setTitle(campground.author.username, for: .normal)
-            timeAgoLabel.text = campground.sinceCreated ?? "a few UNKNOWN ago"
-            descriptionLabel.text = campground.description
-            priceLabel.text = "Costs $\(campground.price) per night"
-            
-            // Load comments in
-            for comment in campground.comments {
-                let commentView = CommentView()
-                commentView.setCommentAttributes(comment: comment)
-                commentView.delegate = self
-                commentStack.addArrangedSubview(commentView)
-            }
-            
-        } else {
-            errorOccurred = true
-        }
+        commentTextField.delegate = self
+        
+        setCampgroundInfo()
     }
     
-    //MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -94,6 +82,39 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         return nil
     }
     
+    //MARK: - Set Campground Info
+    
+    func setCampgroundInfo() {
+        if let campground = getCampgroundData() {
+            
+            // Set campground info
+            campgroundName.text = campground.name
+            if let url = URL(string: campground.img){
+                campgroundImage.load(url: url)
+            }
+            authorButton.setTitle(campground.author.username, for: .normal)
+            timeAgoLabel.text = campground.sinceCreated ?? "a few UNKNOWN ago"
+            descriptionLabel.text = campground.description
+            priceLabel.text = "Costs $\(campground.price) per night"
+            
+            for commentView in commentViews {
+                commentStack.removeArrangedSubview(commentView)
+            }
+            
+            // Load comments in/out
+            for comment in campground.comments {
+                let commentView = CommentView()
+                commentView.setCommentAttributes(comment: comment)
+                commentView.delegate = self
+                commentStack.addArrangedSubview(commentView)
+                commentViews.append(commentView)
+            }
+            
+        } else {
+            errorOccurred = true
+        }
+    }
+    
     //MARK: - IBActions
     
     @IBAction func backPressed(_ sender: Any) {
@@ -104,6 +125,18 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         if let safeUsername = authorButton.titleLabel?.text {
             goToProfile(username: safeUsername)
         }
+    }
+    
+    @IBAction func commentPressed(_ sender: Any) {
+        sendComment()
+    }
+    
+    //MARK: - TextField Delegate Methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        sendComment()
+        
+        return true
     }
     
     //MARK: - API Requests
@@ -130,6 +163,76 @@ class CampgroundVC: UIViewController, CommentViewDelegate {
         authorButton.isEnabled = false
         
     }
+    
+    func sendComment() {
+        if let commentText = commentTextField?.text {
+            if commentText == "" {
+                // Set some stuff
+                commentTextField.isEnabled = false
+                commentButton.isEnabled = false
+                loadingIndicator.startAnimating()
+                
+                // Start setting up request
+                var commentRequest = URLRequest(url: URL(string: API.shared.urlString + "register")!)
+                commentRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+                commentRequest.httpMethod = "POST"
+                let parameters: [String: Any] = [
+                    "text": commentText
+                ]
+                commentRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
+                
+                let api = API(successFunc: { (jsonData) in
+                    let decoder = JSONDecoder()
+                    do {
+                        let signUpResponse = try decoder.decode(RegularResponseObject.self, from: jsonData)
+                        if signUpResponse.type == "success" {
+                            self.succeededComment()
+                        } else {
+                            self.failedComment(reason: signUpResponse.data.error?.message ?? signUpResponse.data.message ?? "Failed to sign user up!")
+                        }
+                    } catch {
+                        print("Error decoding data")
+                        print(error)
+                        self.failedComment(reason: "Unknown Reason")
+                    }
+                }) { (error) in
+                    self.failedComment(reason: "Try Checking Your Internet!")
+                }
+                
+                if let authRequest = api.setAuth(urlRequest: commentRequest) {
+                    let commentRequest = URLSession.shared.dataTask(with: authRequest, completionHandler: api.handleResponse(data:response:error:))
+                    commentRequest.resume()
+                } else {
+                    failedComment(reason: "Was unable to authorize request")
+                }
+                return
+            }
+        }
+        // Failed
+        failedComment(reason: "Make sure to enter a comment!")
+    }
+    
+    //MARK: - Response handling
+    
+    func failedComment(reason: String) {
+        let failedAlert = UIAlertController(title: "Comment Failed!", message: reason, preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            self.setCampgroundInfo()
+            self.commentTextField.isEnabled = true
+            self.commentTextField.text = ""
+            self.commentButton.isEnabled = true
+        }))
+    }
+    
+    func succeededComment() {
+        setCampgroundInfo()
+        commentTextField.isEnabled = true
+        commentTextField.text = ""
+        commentButton.isEnabled = true
+        loadingIndicator.stopAnimating()
+        
+    }
+    
     
     //MARK: - Delegate Methods
     

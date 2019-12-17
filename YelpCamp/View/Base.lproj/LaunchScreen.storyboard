@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,73 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen-bg" translatesAutoresizingMaskIntoConstraints="NO" id="css-Zs-E2O">
+                                <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YelpCamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPS-2J-8Ey">
+                                <rect key="frame" x="74" y="411.5" width="266" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="61"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hN4-cs-T2H">
+                                <rect key="frame" x="74" y="489.5" width="266" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paradox Programming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QE-m0-ple">
+                                        <rect key="frame" x="78" y="20" width="169.5" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hy4-bQ-zgx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paradox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-WW-6KK">
+                                        <rect key="frame" x="20" y="20" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EcF-WW-6KK" secondAttribute="height" multiplier="1:1" id="BI3-Hp-DKv"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3QE-m0-ple" firstAttribute="bottom" secondItem="EcF-WW-6KK" secondAttribute="bottom" id="2qf-76-01s"/>
+                                    <constraint firstItem="EcF-WW-6KK" firstAttribute="leading" secondItem="hN4-cs-T2H" secondAttribute="leading" constant="20" id="Gv9-xI-RJe"/>
+                                    <constraint firstAttribute="bottom" secondItem="3QE-m0-ple" secondAttribute="bottom" constant="20" id="HhK-eM-YcG"/>
+                                    <constraint firstItem="3QE-m0-ple" firstAttribute="leading" secondItem="EcF-WW-6KK" secondAttribute="trailing" constant="8" symbolic="YES" id="KmS-wE-Gtc"/>
+                                    <constraint firstItem="3QE-m0-ple" firstAttribute="top" secondItem="hN4-cs-T2H" secondAttribute="top" constant="20" id="ibp-dz-bBi"/>
+                                    <constraint firstItem="3QE-m0-ple" firstAttribute="top" secondItem="EcF-WW-6KK" secondAttribute="top" id="ucV-IJ-zUQ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3QE-m0-ple" secondAttribute="trailing" constant="18.5" id="yPu-c4-Lp6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nPS-2J-8Ey" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="848-5T-Ct7"/>
+                            <constraint firstItem="hN4-cs-T2H" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ab4-uP-T2V"/>
+                            <constraint firstItem="css-Zs-E2O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LjF-Ne-9pc"/>
+                            <constraint firstItem="nPS-2J-8Ey" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Org-3A-WwQ"/>
+                            <constraint firstItem="css-Zs-E2O" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="20" symbolic="YES" id="PWY-U9-Dsw"/>
+                            <constraint firstItem="hN4-cs-T2H" firstAttribute="top" secondItem="nPS-2J-8Ey" secondAttribute="bottom" constant="5" id="QqG-4m-w4f"/>
+                            <constraint firstItem="hN4-cs-T2H" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nPS-2J-8Ey" secondAttribute="trailing" id="ach-g0-lDI"/>
+                            <constraint firstAttribute="bottom" secondItem="css-Zs-E2O" secondAttribute="bottom" constant="20" symbolic="YES" id="dPb-aK-WfD"/>
+                            <constraint firstItem="hN4-cs-T2H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nPS-2J-8Ey" secondAttribute="leading" id="fGE-s8-hV7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nPS-2J-8Ey" secondAttribute="trailing" constant="20" id="lJS-iK-AHk"/>
+                            <constraint firstItem="nPS-2J-8Ey" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pVE-tS-Idf"/>
+                            <constraint firstItem="css-Zs-E2O" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sL3-Z5-rV0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchscreen-bg" width="913" height="1194"/>
+        <image name="paradox-logo" width="683" height="683"/>
+    </resources>
 </document>
