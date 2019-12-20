@@ -206,6 +206,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-bC-OOr">
                                 <rect key="frame" x="20" y="147" width="177" height="31"/>
                                 <state key="normal" title="View Account"/>
+                                <connections>
+                                    <action selector="viewAccountPressed:" destination="Utl-fP-v6G" eventType="touchUpInside" id="Lcr-Gw-jqH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlr-Bs-NRn">
                                 <rect key="frame" x="217" y="147" width="177" height="31"/>
@@ -265,6 +268,7 @@
                         <outlet property="automaticSigninSwitch" destination="wdW-qV-cgx" id="frj-68-eZB"/>
                         <outlet property="usernameLabel" destination="KIq-Om-DAx" id="Acn-Nr-gb5"/>
                         <segue destination="dFk-hn-UIr" kind="presentation" identifier="loggedOutSegue" modalPresentationStyle="fullScreen" id="RaJ-rd-qEX"/>
+                        <segue destination="QIA-1s-8ua" kind="presentation" identifier="viewMyProfile" modalPresentationStyle="fullScreen" id="y7x-YE-pdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZL-ZS-I9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -423,6 +427,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8e-ta-NlI">
                                                         <rect key="frame" x="286" y="20" width="68" height="34"/>
                                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                         <state key="normal" title="Comment">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -840,6 +845,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="y7x-YE-pdn"/>
         <segue reference="o5Q-Xr-ayM"/>
         <segue reference="0Lw-XS-WXc"/>
     </inferredMetricsTieBreakers>

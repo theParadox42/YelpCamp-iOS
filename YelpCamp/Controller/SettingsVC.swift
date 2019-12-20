@@ -21,6 +21,9 @@ class SettingsVC: UIViewController {
     // User Defaults (for logging out)
     private let userDefaults = UserDefaults.standard
     
+    // Stashed user object
+    var sendAccount: AccountObject?
+    
     override func viewDidLoad() {
         automaticSigninSwitch.setOn(!userDefaults.bool(forKey: "noAutomaticSignin"), animated: false)
         usernameLabel.text = "Username: \(userDefaults.string(forKey: "username") ?? "No Username Found")"
@@ -46,6 +49,36 @@ class SettingsVC: UIViewController {
         performSegue(withIdentifier: "loggedOutSegue", sender: self)
         
     }
+    
+    
+    //MARK: - View Profile
+    
+    @IBAction func viewAccountPressed(_ sender: Any) {
+        goToProfile()
+    }
+    
+    
+    func goToProfile(){
+        
+        if let data = try? Data(contentsOf: URL(string: API.shared.urlString + "profile/" + userDefaults.string(forKey: "username")!)!) {
+            let decoder = JSONDecoder()
+            do {
+                let response = try decoder.decode(AccountResponseObject.self, from: data)
+                if response.type == "user" {
+                    sendAccount = response.data!
+                    performSegue(withIdentifier: "viewMyProfile", sender: self)
+                    return
+                } else {
+                    print("Response brought error")
+                }
+            } catch {
+                print("Error getting account info")
+                print(error)
+            }
+        }
+        
+    }
+    
     
     
     //MARK: - Delete Account Process
@@ -166,9 +199,22 @@ class SettingsVC: UIViewController {
     }
     
     
-    //MARK: - Other Settings
+    //MARK: - Automatic Sign-In Switch
+    
+    
     // Automatic Sign-in
     @IBAction func switchValueChanged(_ sender: Any) {
         userDefaults.set(!automaticSigninSwitch.isOn, forKey: "noAutomaticSignin")
     }
+    
+    
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let profileVC = segue.destination as? ProfileVC {
+            profileVC.accountProfile = sendAccount!
+        }
+    }
+    
 }
