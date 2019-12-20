@@ -98,7 +98,7 @@ class CampgroundVC: UIViewController, CommentViewDelegate, UITextFieldDelegate {
             priceLabel.text = "Costs $\(campground.price) per night"
             
             for commentView in commentViews {
-                commentStack.removeArrangedSubview(commentView)
+                commentView.removeFromSuperview()
             }
             
             // Load comments in/out
@@ -165,15 +165,15 @@ class CampgroundVC: UIViewController, CommentViewDelegate, UITextFieldDelegate {
     }
     
     func sendComment() {
-        if let commentText = commentTextField?.text {
-            if commentText == "" {
+        if let commentText = commentTextField.text {
+            if commentText != "" {
                 // Set some stuff
                 commentTextField.isEnabled = false
                 commentButton.isEnabled = false
                 loadingIndicator.startAnimating()
                 
                 // Start setting up request
-                var commentRequest = URLRequest(url: URL(string: API.shared.urlString + "register")!)
+                var commentRequest = URLRequest(url: URL(string: API.shared.urlString + "campgrounds/" + campgroundID + "/comments")!)
                 commentRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 commentRequest.httpMethod = "POST"
                 let parameters: [String: Any] = [
@@ -222,6 +222,7 @@ class CampgroundVC: UIViewController, CommentViewDelegate, UITextFieldDelegate {
             self.commentTextField.text = ""
             self.commentButton.isEnabled = true
         }))
+        present(failedAlert, animated: true)
     }
     
     func succeededComment() {

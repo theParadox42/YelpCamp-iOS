@@ -21,6 +21,11 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if userDefaults.bool(forKey: "noAutomaticSignin") {
+            userDefaults.removeObject(forKey: "username")
+            userDefaults.removeObject(forKey: "password")
+        }
+        // Create a signin request
         if var signinRequest = API.shared.setAuth(urlRequest: URLRequest(url: URL(string: API.shared.urlString + "checkuser")!)) {
             
             signinRequest.httpMethod = "POST"

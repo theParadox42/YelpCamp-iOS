@@ -91,7 +91,7 @@ class SignUpVC: UIViewController {
             } catch {
                 print("Error decoding data")
                 print(error)
-                self.failedSignup(reason: "Unknown Reason")
+                self.failedSignup(reason: "Unable to parse response!")
             }
         }) { (error) in
             self.failedSignup(reason: "Try Checking Your Internet!")
