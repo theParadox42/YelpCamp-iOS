@@ -25,6 +25,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZYK-nK-sq4">
+                                <rect key="frame" x="121.5" y="127.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Image..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL1-qU-nJf">
+                                <rect key="frame" x="77" y="169.5" width="126.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vl7-14-VD3">
                                 <rect key="frame" x="0.0" y="46" width="280" height="200"/>
                                 <constraints>
@@ -73,7 +82,9 @@
                             <constraint firstItem="HGr-h2-m46" firstAttribute="trailing" secondItem="GGL-kU-Op2" secondAttribute="trailing" id="GP2-7N-i1P"/>
                             <constraint firstItem="GGL-kU-Op2" firstAttribute="centerX" secondItem="Oc0-FU-foB" secondAttribute="centerX" id="I9X-xz-MBo"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vl7-14-VD3" secondAttribute="trailing" id="KG5-Ky-DQx"/>
+                            <constraint firstItem="rL1-qU-nJf" firstAttribute="top" secondItem="ZYK-nK-sq4" secondAttribute="bottom" constant="5" id="KWe-zU-VQC"/>
                             <constraint firstItem="vl7-14-VD3" firstAttribute="top" secondItem="GGL-kU-Op2" secondAttribute="bottom" constant="10" id="Lsz-Xh-uG1"/>
+                            <constraint firstItem="rL1-qU-nJf" firstAttribute="centerX" secondItem="vl7-14-VD3" secondAttribute="centerX" id="RIW-pR-Wd8"/>
                             <constraint firstItem="Ku7-9h-dLb" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GGL-kU-Op2" secondAttribute="trailing" id="Rl5-Vy-jiQ"/>
                             <constraint firstAttribute="width" priority="250" constant="500" id="Tsv-cK-c93"/>
                             <constraint firstItem="RDV-et-Siq" firstAttribute="top" secondItem="I3f-sH-atX" secondAttribute="top" id="VLz-Qp-uUn"/>
@@ -90,7 +101,9 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="nBF-H6-rOy"/>
                             <constraint firstItem="HGr-h2-m46" firstAttribute="leading" secondItem="GGL-kU-Op2" secondAttribute="leading" id="pD7-Ta-H1L"/>
                             <constraint firstItem="GGL-kU-Op2" firstAttribute="top" secondItem="Oc0-FU-foB" secondAttribute="top" id="saJ-Qf-UyA"/>
+                            <constraint firstItem="ZYK-nK-sq4" firstAttribute="centerX" secondItem="vl7-14-VD3" secondAttribute="centerX" id="stc-WF-o3G"/>
                             <constraint firstItem="I3f-sH-atX" firstAttribute="top" secondItem="vl7-14-VD3" secondAttribute="bottom" constant="10" id="wcR-GI-TVt"/>
+                            <constraint firstItem="ZYK-nK-sq4" firstAttribute="centerY" secondItem="vl7-14-VD3" secondAttribute="centerY" id="xyE-gA-dZW"/>
                         </constraints>
                     </view>
                 </subviews>
