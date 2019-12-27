@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DCACB85A90AE6EB82971863 /* Pods_YelpCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9B8598B6FD24E974632C47 /* Pods_YelpCamp.framework */; };
 		F10743CB2391A756004D1650 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10743CA2391A756004D1650 /* ClassExtensions.swift */; };
 		F128306C238A1B3700EC22A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128306B238A1B3700EC22A9 /* AppDelegate.swift */; };
 		F128306E238A1B3700EC22A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128306D238A1B3700EC22A9 /* SceneDelegate.swift */; };
@@ -37,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3894E6874F5766FE1854751E /* Pods-YelpCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpCamp.debug.xcconfig"; path = "Target Support Files/Pods-YelpCamp/Pods-YelpCamp.debug.xcconfig"; sourceTree = "<group>"; };
+		52CF26D556F2D8EA17158A07 /* Pods-YelpCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpCamp.release.xcconfig"; path = "Target Support Files/Pods-YelpCamp/Pods-YelpCamp.release.xcconfig"; sourceTree = "<group>"; };
+		BC9B8598B6FD24E974632C47 /* Pods_YelpCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10743CA2391A756004D1650 /* ClassExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
 		F1283068238A1B3700EC22A9 /* YelpCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F128306B238A1B3700EC22A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,17 +78,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCACB85A90AE6EB82971863 /* Pods_YelpCamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C54B26487155A9A5F19718DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC9B8598B6FD24E974632C47 /* Pods_YelpCamp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD7937793E1DCC27F2D958D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3894E6874F5766FE1854751E /* Pods-YelpCamp.debug.xcconfig */,
+				52CF26D556F2D8EA17158A07 /* Pods-YelpCamp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F128305F238A1B3700EC22A9 = {
 			isa = PBXGroup;
 			children = (
 				F128306A238A1B3700EC22A9 /* YelpCamp */,
 				F1283069238A1B3700EC22A9 /* Products */,
+				DD7937793E1DCC27F2D958D0 /* Pods */,
+				C54B26487155A9A5F19718DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F128307C238A1B3900EC22A9 /* Build configuration list for PBXNativeTarget "YelpCamp" */;
 			buildPhases = (
+				E1A0C7B5C80AAE4EA79B3189 /* [CP] Check Pods Manifest.lock */,
 				F1283064238A1B3700EC22A9 /* Sources */,
 				F1283065238A1B3700EC22A9 /* Frameworks */,
 				F1283066238A1B3700EC22A9 /* Resources */,
+				97FF1A645D5B987CCBE10713 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +311,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		97FF1A645D5B987CCBE10713 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YelpCamp/Pods-YelpCamp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YelpCamp/Pods-YelpCamp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YelpCamp/Pods-YelpCamp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1A0C7B5C80AAE4EA79B3189 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YelpCamp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1283064238A1B3700EC22A9 /* Sources */ = {
@@ -452,6 +521,7 @@
 		};
 		F128307D238A1B3900EC22A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3894E6874F5766FE1854751E /* Pods-YelpCamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_AUTOLINK = NO;
@@ -463,6 +533,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				INFOPLIST_FILE = YelpCamp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +548,7 @@
 		};
 		F128307E238A1B3900EC22A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52CF26D556F2D8EA17158A07 /* Pods-YelpCamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_AUTOLINK = NO;
@@ -488,6 +560,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				INFOPLIST_FILE = YelpCamp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

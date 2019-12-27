@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dFk-hn-UIr">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -50,7 +50,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YelpCamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-Cs-laX">
                                 <rect key="frame" x="20" y="64" width="374" height="100"/>
-                                <color key="backgroundColor" name="Color"/>
+                                <color key="backgroundColor" name="Transparent Dark light"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="HfY-ra-bx0"/>
                                 </constraints>
@@ -132,12 +132,13 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DcP-wA-6mJ">
                                 <rect key="frame" x="20" y="108" width="374" height="250"/>
+                                <color key="backgroundColor" name="Transparent Dark light"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="gpD-vv-zXe"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="anQ-G1-nl9">
-                                <rect key="frame" x="20" y="413" width="374" height="32"/>
+                                <rect key="frame" x="20" y="453" width="374" height="32"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Per Night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZa-06-tKI">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="32"/>
@@ -145,43 +146,69 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CI-4w-Z9q">
-                                        <rect key="frame" x="187" y="0.0" width="21.5" height="32"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CI-4w-Z9q">
+                                        <rect key="frame" x="186.5" y="0.0" width="22" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hsG-P3-nX1">
                                         <rect key="frame" x="280" y="0.0" width="94" height="32"/>
+                                        <connections>
+                                            <action selector="priceStepperChangedValue:" destination="dzb-qx-eIJ" eventType="valueChanged" id="Itl-yr-J32"/>
+                                        </connections>
                                     </stepper>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rX1-89-VHi">
-                                <rect key="frame" x="20" y="373" width="177" height="30"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Choose Image">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTe-eE-0o3">
-                                <rect key="frame" x="217" y="373" width="177" height="30"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Take Picture">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygm-RL-NBO">
+                                <rect key="frame" x="20" y="373" width="374" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTe-eE-0o3">
+                                        <rect key="frame" x="197" y="20" width="157" height="30"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Take Picture">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="takePicturePressed:" destination="dzb-qx-eIJ" eventType="touchUpInside" id="hME-00-cQG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rX1-89-VHi">
+                                        <rect key="frame" x="20" y="20" width="157" height="30"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Choose Image">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="chooseImagePressed:" destination="dzb-qx-eIJ" eventType="touchUpInside" id="rri-QR-McS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="rX1-89-VHi" firstAttribute="top" secondItem="Ygm-RL-NBO" secondAttribute="top" constant="20" symbolic="YES" id="EW4-QZ-MbJ"/>
+                                    <constraint firstItem="zTe-eE-0o3" firstAttribute="leading" secondItem="rX1-89-VHi" secondAttribute="trailing" constant="20" id="SVN-0n-nNZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="rX1-89-VHi" secondAttribute="bottom" constant="20" symbolic="YES" id="fXM-Wy-95i"/>
+                                    <constraint firstItem="rX1-89-VHi" firstAttribute="leading" secondItem="Ygm-RL-NBO" secondAttribute="leading" constant="20" symbolic="YES" id="kRM-FP-qWV"/>
+                                    <constraint firstItem="zTe-eE-0o3" firstAttribute="width" secondItem="rX1-89-VHi" secondAttribute="width" id="mOF-rq-UdO"/>
+                                    <constraint firstAttribute="trailing" secondItem="zTe-eE-0o3" secondAttribute="trailing" constant="20" symbolic="YES" id="pUD-1R-xLD"/>
+                                    <constraint firstAttribute="bottom" secondItem="zTe-eE-0o3" secondAttribute="bottom" constant="20" symbolic="YES" id="rs6-2w-E1x"/>
+                                    <constraint firstItem="zTe-eE-0o3" firstAttribute="top" secondItem="Ygm-RL-NBO" secondAttribute="top" constant="20" symbolic="YES" id="udA-5l-huH"/>
+                                </constraints>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Campground description here..." translatesAutoresizingMaskIntoConstraints="NO" id="npI-n2-yIg">
-                                <rect key="frame" x="5" y="455" width="404" height="263"/>
+                                <rect key="frame" x="20" y="495" width="374" height="223"/>
+                                <color key="backgroundColor" name="Gray Light Dark"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -191,27 +218,33 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-vg-DUc">
                                         <rect key="frame" x="197" y="20" width="157" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="Green Light Dark"/>
                                         <state key="normal" title="Submit Campground">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submitCampgroundPressed:" destination="dzb-qx-eIJ" eventType="touchUpInside" id="rvF-NW-yQ0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKt-3U-6hf">
                                         <rect key="frame" x="20" y="20" width="157" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="Red Light Dark"/>
                                         <state key="normal" title="Restart Campground">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="restartCampgroundPressed:" destination="dzb-qx-eIJ" eventType="touchUpInside" id="QAt-ZS-Wff"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -233,35 +266,38 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Ygm-RL-NBO" firstAttribute="top" secondItem="DcP-wA-6mJ" secondAttribute="bottom" constant="15" id="1fN-4B-NL6"/>
                             <constraint firstItem="J4u-V0-WHm" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="1uY-2W-rVs"/>
-                            <constraint firstItem="rX1-89-VHi" firstAttribute="top" secondItem="DcP-wA-6mJ" secondAttribute="bottom" constant="15" id="6zk-wX-8zC"/>
-                            <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="npI-n2-yIg" secondAttribute="trailing" constant="5" id="8Id-1w-iAm"/>
+                            <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="npI-n2-yIg" secondAttribute="trailing" constant="20" id="8Id-1w-iAm"/>
                             <constraint firstItem="DcP-wA-6mJ" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="EkR-JU-WpT"/>
-                            <constraint firstItem="npI-n2-yIg" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="5" id="Fv5-VP-t8y"/>
+                            <constraint firstItem="npI-n2-yIg" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="Fv5-VP-t8y"/>
                             <constraint firstItem="gfX-uX-8ho" firstAttribute="bottom" secondItem="J4u-V0-WHm" secondAttribute="bottom" constant="15" id="JEC-E7-OJw"/>
                             <constraint firstItem="uac-QZ-h4x" firstAttribute="centerY" secondItem="DcP-wA-6mJ" secondAttribute="centerY" id="KRk-77-lFj"/>
-                            <constraint firstItem="anQ-G1-nl9" firstAttribute="top" secondItem="zTe-eE-0o3" secondAttribute="bottom" constant="10" id="PT3-HB-QnU"/>
+                            <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="Ygm-RL-NBO" secondAttribute="trailing" constant="20" id="RHM-cx-dpz"/>
                             <constraint firstItem="npI-n2-yIg" firstAttribute="top" secondItem="anQ-G1-nl9" secondAttribute="bottom" constant="10" id="Rg0-0f-RJD"/>
-                            <constraint firstItem="zTe-eE-0o3" firstAttribute="top" secondItem="DcP-wA-6mJ" secondAttribute="bottom" constant="15" id="Ved-6P-58c"/>
-                            <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="zTe-eE-0o3" secondAttribute="trailing" constant="20" id="X3e-zp-5BJ"/>
+                            <constraint firstItem="Ygm-RL-NBO" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="UB9-6x-RQ1"/>
+                            <constraint firstItem="anQ-G1-nl9" firstAttribute="top" secondItem="Ygm-RL-NBO" secondAttribute="bottom" constant="10" id="VuP-WR-vER"/>
                             <constraint firstItem="KzH-in-6Db" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="ZTK-3N-pOp"/>
                             <constraint firstItem="KzH-in-6Db" firstAttribute="top" secondItem="gfX-uX-8ho" secondAttribute="top" constant="10" id="aX1-h7-2b7"/>
-                            <constraint firstItem="anQ-G1-nl9" firstAttribute="top" secondItem="rX1-89-VHi" secondAttribute="bottom" constant="10" id="adL-gZ-EQ2"/>
                             <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="anQ-G1-nl9" secondAttribute="trailing" constant="20" id="e2P-l3-Iy9"/>
                             <constraint firstItem="anQ-G1-nl9" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="e47-4C-hrx"/>
                             <constraint firstItem="DcP-wA-6mJ" firstAttribute="top" secondItem="KzH-in-6Db" secondAttribute="bottom" constant="10" id="h49-Bw-A4e"/>
                             <constraint firstItem="uac-QZ-h4x" firstAttribute="centerX" secondItem="DcP-wA-6mJ" secondAttribute="centerX" id="h4X-2w-Jbg"/>
-                            <constraint firstItem="rX1-89-VHi" firstAttribute="leading" secondItem="gfX-uX-8ho" secondAttribute="leading" constant="20" id="hv0-Fo-uLK"/>
                             <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="DcP-wA-6mJ" secondAttribute="trailing" constant="20" id="nQI-Tq-Hyv"/>
                             <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="KzH-in-6Db" secondAttribute="trailing" constant="20" id="tXh-aQ-enb"/>
                             <constraint firstItem="J4u-V0-WHm" firstAttribute="top" secondItem="npI-n2-yIg" secondAttribute="bottom" constant="10" id="toy-aG-xth"/>
-                            <constraint firstItem="zTe-eE-0o3" firstAttribute="width" secondItem="rX1-89-VHi" secondAttribute="width" id="vFW-lM-OIL"/>
-                            <constraint firstItem="zTe-eE-0o3" firstAttribute="leading" secondItem="rX1-89-VHi" secondAttribute="trailing" constant="20" id="xDL-UI-lvu"/>
                             <constraint firstItem="gfX-uX-8ho" firstAttribute="trailing" secondItem="J4u-V0-WHm" secondAttribute="trailing" constant="20" id="xS4-TF-SU0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gfX-uX-8ho"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Campground" image="plus" catalog="system" id="XrZ-m8-qUV"/>
+                    <connections>
+                        <outlet property="campgroundImageView" destination="DcP-wA-6mJ" id="ddA-lx-tYA"/>
+                        <outlet property="campgroundNameTextField" destination="KzH-in-6Db" id="adz-c0-hhI"/>
+                        <outlet property="descriptionTextView" destination="npI-n2-yIg" id="2Ru-Rk-9no"/>
+                        <outlet property="dollarLabel" destination="0CI-4w-Z9q" id="MSY-kl-0bU"/>
+                        <outlet property="priceStepper" destination="hsG-P3-nX1" id="dTG-XZ-BYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HC-JV-GOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,16 +381,24 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-bC-OOr">
                                 <rect key="frame" x="20" y="147" width="177" height="31"/>
-                                <state key="normal" title="View Account"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="View Account">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="viewAccountPressed:" destination="Utl-fP-v6G" eventType="touchUpInside" id="Lcr-Gw-jqH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlr-Bs-NRn">
                                 <rect key="frame" x="217" y="147" width="177" height="31"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Red Light Dark"/>
                                 <state key="normal" title="Delete Account">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -458,6 +502,7 @@
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-Op-82o">
                                                 <rect key="frame" x="20" y="160" width="374" height="250"/>
+                                                <color key="backgroundColor" name="Transparent Dark light"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="pQd-3l-gYK"/>
                                                 </constraints>
@@ -993,13 +1038,22 @@
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="star" catalog="system" width="64" height="58"/>
-        <namedColor name="Color">
+        <namedColor name="Gray Light Dark">
+            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green Light Dark">
+            <color red="0.12800000607967377" green="0.82700002193450928" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red Light Dark">
+            <color red="1" green="0.2630000114440918" blue="0.19099999964237213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Transparent Dark light">
             <color red="1" green="1" blue="1" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y7x-YE-pdn"/>
+        <segue reference="wDA-7g-nKz"/>
         <segue reference="o5Q-Xr-ayM"/>
-        <segue reference="yq3-8j-WBX"/>
+        <segue reference="wZK-Lp-nEe"/>
     </inferredMetricsTieBreakers>
 </document>
