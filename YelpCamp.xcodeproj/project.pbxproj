@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		F1283078238A1B3900EC22A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1283076238A1B3900EC22A9 /* LaunchScreen.storyboard */; };
 		F14037962391F7290027E4F3 /* CampgroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14037952391F7290027E4F3 /* CampgroundVC.swift */; };
 		F149137023AB27B500BCE107 /* EditCampgroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F149136F23AB27B500BCE107 /* EditCampgroundVC.swift */; };
+		F14E5D4C23B6BD3500221FD4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F14E5D4B23B6BD3400221FD4 /* .gitignore */; };
 		F155A0092390983D002B5004 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A0082390983D002B5004 /* SignUpVC.swift */; };
 		F155A00B239098CB002B5004 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A00A239098CB002B5004 /* LoginVC.swift */; };
 		F155A00F23909948002B5004 /* CampgroundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F155A00E23909948002B5004 /* CampgroundsVC.swift */; };
@@ -52,6 +53,7 @@
 		F128307F238A1B4000EC22A9 /* YelpCamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YelpCamp.entitlements; sourceTree = "<group>"; };
 		F14037952391F7290027E4F3 /* CampgroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundVC.swift; sourceTree = "<group>"; };
 		F149136F23AB27B500BCE107 /* EditCampgroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCampgroundVC.swift; sourceTree = "<group>"; };
+		F14E5D4B23B6BD3400221FD4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F155A0082390983D002B5004 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		F155A00A239098CB002B5004 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F155A00E23909948002B5004 /* CampgroundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampgroundsVC.swift; sourceTree = "<group>"; };
@@ -99,13 +101,13 @@
 				3894E6874F5766FE1854751E /* Pods-YelpCamp.debug.xcconfig */,
 				52CF26D556F2D8EA17158A07 /* Pods-YelpCamp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		F128305F238A1B3700EC22A9 = {
 			isa = PBXGroup;
 			children = (
+				F14E5D4B23B6BD3400221FD4 /* .gitignore */,
 				F128306A238A1B3700EC22A9 /* YelpCamp */,
 				F1283069238A1B3700EC22A9 /* Products */,
 				DD7937793E1DCC27F2D958D0 /* Pods */,
@@ -302,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1283078238A1B3900EC22A9 /* LaunchScreen.storyboard in Resources */,
+				F14E5D4C23B6BD3500221FD4 /* .gitignore in Resources */,
 				F1D220F42393197000B13DC5 /* CommentView.xib in Resources */,
 				F1283075238A1B3900EC22A9 /* Assets.xcassets in Resources */,
 				F1F7153A23943F920089A3F9 /* CommentCell.xib in Resources */,
