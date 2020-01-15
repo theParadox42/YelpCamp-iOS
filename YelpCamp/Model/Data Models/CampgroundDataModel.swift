@@ -12,7 +12,7 @@ protocol CampgroundProtocol: Decodable {
     var name: String { get }
     var description: String { get }
     var author: AuthorObject { get }
-    var img: String { get }
+    var img: String? { get }
     var price: String { get }
     var _id: String { get }
     var sinceCreated: String? { get }
@@ -22,7 +22,7 @@ struct BasicCampgroundObject: CampgroundProtocol {
     let name: String
     let description: String
     var author: AuthorObject
-    let img: String
+    let img: String?
     let price: String
     let _id: String
     let sinceCreated: String?
@@ -32,7 +32,7 @@ struct CampgroundObject: CampgroundProtocol {
     let name: String
     let description: String
     let author: AuthorObject
-    let img: String
+    let img: String?
     let price: String
     let comments: [CommentObject]
     let sinceCreated: String?

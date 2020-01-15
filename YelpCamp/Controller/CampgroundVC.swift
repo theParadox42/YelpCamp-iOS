@@ -89,9 +89,7 @@ class CampgroundVC: UIViewController, CommentViewDelegate, UITextFieldDelegate {
             
             // Set campground info
             campgroundName.text = campground.name
-            if let url = URL(string: campground.img){
-                campgroundImage.load(url: url)
-            }
+            campgroundImage.load(urlString: campground.img)
             authorButton.setTitle(campground.author.username, for: .normal)
             timeAgoLabel.text = campground.sinceCreated ?? "a few UNKNOWN ago"
             descriptionLabel.text = campground.description

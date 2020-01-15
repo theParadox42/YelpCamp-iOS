@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-YelpCamp/Pods-YelpCamp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework

@@ -36,9 +36,8 @@ class CampgroundCellTableViewCell: UITableViewCell {
         cellCampground = campground
         
         nameLabel.text = campground.name
-        if let url = URL(string: campground.img) {
-            campgroundImage.load(url: url)
-        }
+        campgroundImage.image = nil
+        campgroundImage.load(urlString: campground.img)
         authorLabel.text = campground.author.username
         timeAgoLabel.text = campground.sinceCreated ?? "a few UNKNOWN ago"
         descriptionLabel.text = campground.description
